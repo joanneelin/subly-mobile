@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, KeyboardAvoidingView, Platform, Alert } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, KeyboardAvoidingView, Platform, Alert, Image } from 'react-native'
 import { useRouter } from 'expo-router'
 import { supabase } from '@/lib/supabase'
 
@@ -34,9 +34,7 @@ export default function OnboardingScreen() {
     <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
       <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}>
         <View style={styles.card}>
-          <View style={styles.logo}>
-            <Text style={styles.logoText}>S</Text>
-          </View>
+          <Image source={require('../../../assets/logo.png')} style={styles.logo} resizeMode="contain" />
           <Text style={styles.title}>Welcome to Subly</Text>
           <Text style={styles.subtitle}>Tell us a bit about yourself</Text>
 
@@ -82,8 +80,7 @@ export default function OnboardingScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#f9fafb', padding: 16 },
   card: { backgroundColor: '#fff', borderRadius: 20, padding: 32, shadowColor: '#000', shadowOpacity: 0.06, shadowRadius: 12, elevation: 4 },
-  logo: { width: 56, height: 56, borderRadius: 14, backgroundColor: '#2b3ef5', alignItems: 'center', justifyContent: 'center', alignSelf: 'center', marginBottom: 16 },
-  logoText: { color: '#fff', fontSize: 24, fontWeight: '700' },
+  logo: { width: 120, height: 120, alignSelf: 'center', marginBottom: 8 },
   title: { fontSize: 22, fontWeight: '700', color: '#111827', textAlign: 'center' },
   subtitle: { color: '#6b7280', fontSize: 14, textAlign: 'center', marginTop: 4, marginBottom: 24 },
   label: { fontSize: 13, fontWeight: '600', color: '#374151', marginBottom: 8, marginTop: 12 },

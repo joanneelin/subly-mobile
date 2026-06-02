@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, KeyboardAvoidingView, Platform } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, KeyboardAvoidingView, Platform, Image } from 'react-native'
 import { Link, router } from 'expo-router'
 import { supabase } from '@/lib/supabase'
 
@@ -24,9 +24,7 @@ export default function SignInScreen() {
   return (
     <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
       <View style={styles.card}>
-        <View style={styles.logo}>
-          <Text style={styles.logoText}>S</Text>
-        </View>
+        <Image source={require('../../../assets/logo.png')} style={styles.logo} resizeMode="contain" />
         <Text style={styles.title}>Welcome back</Text>
         <Text style={styles.subtitle}>Sign in to Subly</Text>
 
@@ -65,8 +63,7 @@ export default function SignInScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#f9fafb', justifyContent: 'center', padding: 16 },
   card: { backgroundColor: '#fff', borderRadius: 20, padding: 32, shadowColor: '#000', shadowOpacity: 0.06, shadowRadius: 12, elevation: 4 },
-  logo: { width: 56, height: 56, borderRadius: 14, backgroundColor: '#2b3ef5', alignItems: 'center', justifyContent: 'center', alignSelf: 'center', marginBottom: 16 },
-  logoText: { color: '#fff', fontSize: 24, fontWeight: '700' },
+  logo: { width: 120, height: 120, alignSelf: 'center', marginBottom: 8 },
   title: { fontSize: 24, fontWeight: '700', color: '#111827', textAlign: 'center' },
   subtitle: { color: '#6b7280', fontSize: 14, textAlign: 'center', marginTop: 4, marginBottom: 24 },
   input: { borderWidth: 1, borderColor: '#e5e7eb', borderRadius: 12, padding: 12, fontSize: 14, marginBottom: 12, backgroundColor: '#fff' },
